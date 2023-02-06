@@ -1,0 +1,100 @@
+*,body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/* HEADER */
+header{
+    background-color: #e2e2e2;
+    text-align: center;
+    padding: 25px 0;
+}
+header h1{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+header h2{
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+header h3{
+    line-height: 1.5;
+    font-size: 15px;
+}
+header h3 strong{
+    font-weight: 400;
+}
+
+/* MAIN */
+main{
+    width: 80%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+main div{
+    display: flex;
+    justify-content: space-between;
+}
+main div section{
+    width: 30%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+main div section h2{
+    margin-bottom: 10px;
+}
+main div section input{
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 10px;
+    font-size: 15px;
+    letter-spacing: 3px;
+    outline: none;
+}
+main div section button{
+    background-color: #a9f6ab;
+    border: none;
+    padding: 10px 15px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #2d2d2d;
+    float: right;
+    cursor: pointer;
+}
+main div section button:hover{
+    background-color: #2d2d2d;
+    color: #fff;
+}
+
+
+/* FOOTER */
+footer{
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #000;
+}
+
+
+@media screen and (max-width:500px){
+    header{
+        padding: 25px;
+    }
+    main div{
+        display: block;
+    }
+    main div section{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    main div section button{
+        width: 100%;
+        box-sizing: border-box;
+        float: unset;
+    }
+}
