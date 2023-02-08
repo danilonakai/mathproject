@@ -149,13 +149,18 @@ function findISBN(event){
             let xIsCheckDigit = false;
             let xMultiplication;
             let xValue;
+            let foundX = false;
 
             ISBN_NUMBER_SEPARATED.forEach((number,index)=> {
                 let currentNumber = number;
 
                 if((index + 1) == ISBN_NUMBER_LENGTH){
                     if(currentNumber == "x"){
-                        xIsCheckDigit = true;
+                        if(foundX){
+                            checkDigit = 10;
+                        }else{
+                            xIsCheckDigit = true;
+                        }
                     }else{
                         checkDigit = parseInt(currentNumber);
                     }
@@ -163,10 +168,10 @@ function findISBN(event){
                     if(currentNumber == "x"){
                         currentNumber = 0;
                         xMultiplication = index + 1;
+                        foundX = true;
                     }else{
                         currentNumber = currentNumber * (index+1);
                     }
-
                     totalSum += currentNumber;
                 }            
             });
@@ -202,12 +207,28 @@ function validateInput(ths,event){
     }
 }
 
+function validateISBNInput(ths,event){
+    let pressedKey = event.key.toLowerCase();
+
+    if(!isNumeric(pressedKey) && !isFirstX(pressedKey,ths.value) && !xIsCheckDigit(pressedKey,ths.value) && !isSpecialKey(pressedKey)){
+        event.preventDefault();
+    }
+}
+
 function isNumeric(key) {
     return !isNaN(parseFloat(key)) && isFinite(key);
 }
 
 function isFirstX(key,input){
     return key == "x" && input.split("x").length == 1;
+}
+
+function xIsCheckDigit(key,input){
+    if(input.length == 9){
+        if(key == "x"){
+            return true;    
+        }           
+    }
 }
 
 function isSpecialKey(key){
