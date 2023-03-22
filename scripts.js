@@ -57,12 +57,15 @@ function findSIN(event){
                 alert("The x is the check digit and the value is: "+xValue);
             }else{
                 if(doubleX){
-                    xValue = (-(((totalSum % 10) + checkDigit) % 10) + 10) / 2;
+                    xValue = (-(((totalSum % 10) + checkDigit) % 10) + 10) / 2  ;
+
+                    if(!Number.isInteger(xValue)){
+                        let secondNumber = (xValue * 2) - 1;
+                        xValue = parseInt("1"+secondNumber) / 2;
+                    }
                 }else{
                     xValue = -(((totalSum % 10) + checkDigit) % 10) + 10;
                 }
-
-                xValue = Math.round(xValue);
                 
                 alert("The x value is: "+xValue);
             }
