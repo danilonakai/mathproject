@@ -123,10 +123,18 @@ function findUPC(event){
 
             if(xIsCheckDigit){
                 xValue = -(totalSum % 10) + 10;
+
+                if(xValue == 10){
+                    xValue = 0;
+                }
                 
                 alert("The x is the check digit and the value is: "+xValue);
             }else{
                 xValue = -(((totalSum % 10) + checkDigit) % 10) + 10;
+
+                if(xValue == 10){
+                    xValue = 0;
+                }
 
                 alert("The x value is: "+xValue);
             }
